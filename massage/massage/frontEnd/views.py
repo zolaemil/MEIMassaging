@@ -51,7 +51,10 @@ def selectTransform(request):
 		obliterate_incipit = request.POST.get('obliterate_incipit')
 		# orig_clefs = request.POST.get('')
 		replace_longa = request.POST.get('replace_longa')
-		MEI_instructions = TransformData()
+		MEI_instructions = TransformData(arranger_to_editor=arranger_to_editor,
+		                                 obliterate_incipit=obliterate_incipit,
+		                                 replace_longa=replace_longa
+		                                )
 
 		newFile = Document.objects.get(name = MEI_filename)
 
