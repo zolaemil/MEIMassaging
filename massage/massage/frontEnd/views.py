@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+	# -*- coding: utf-8 -*-
 import sys
 
 from analyze.analyze import analyze as make_analysis
@@ -8,6 +8,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.core.files.storage import FileSystemStorage
 
 from massage.frontEnd.models import Document
 from massage.frontEnd.forms import DocumentForm
@@ -17,7 +18,7 @@ def list(request):
 	if request.method == 'POST':
 		form = DocumentForm(request.POST, request.FILES)
 		if form.is_valid():
-			newdoc = Document(docfile = request.FILES['docfile'])
+			newdoc = Document(docfile = request.FILES['docfile'], name = request.FILES['docfile'].name)
 			newdoc.save()
 
 			# Redirect to the document list after POST
@@ -51,7 +52,11 @@ def selectTransform(request):
 		# orig_clefs = request.POST.get('')
 		replace_longa = request.POST.get('replace_longa')
 		MEI_instructions = TransformData()
-		write_transformation(str(MEI_filename), MEI_instructions)
+
+		newFile = Document.objects.get(name = MEI_filename)
+
+		newdoc = processedDocument(name = MEI_filename, docfile = newFile)
+		newdoc.save()
 
 	return render_to_response('frontEnd/select.html',
 	                          {'documents': documents},
