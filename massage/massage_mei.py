@@ -22,6 +22,9 @@ def massage_mei(in_file, out_file):
     except Exception as ex:
         logging.critical(ex)
         logging.critical("Error during massaging " + in_file)
+        logging.critical("More debug messages ")
+    logging.debug("End of massaging MEI")
+    return
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='MEI-Massage a single file.')
@@ -33,4 +36,5 @@ if __name__ == "__main__":
         args.out_file = args.in_file + '_msg.mei'
     logging.info("Massage file: " + args.in_file)
     massage_mei(args.in_file, args.out_file)
+    logging.debug("massage_mei: end")
     logging.info("DONE.")
