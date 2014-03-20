@@ -3,12 +3,14 @@ import argparse
 import unittest
 sys.path.insert(0, '..')
 
-from transform.transform import TransformData
+from transform.transform import TransformData, transform
 from transformtestrunner import TransformTestCase
 from constants import *
 from transform.alt import *
-from pymei import MeiElement, MeiDocument, MeiAttribute
+from pymei import MeiElement, MeiDocument, MeiAttribute, XmlImport
 import utilities
+from transform.variants import variants
+import transform
 
 class FunctionTest(unittest.TestCase):
 			
@@ -330,9 +332,104 @@ class TransformTest(unittest.TestCase):
 		transformed_mei = TransformTestCase(name, mei_file, transform_data).Run()
 		# TODO: do some asserts	on transformed_mei
 
+	def test_destructors(self):
+
+		def flatten_all_colored_blocks(list_of_list_of_color_blocks):
+			FL = []
+			for item in list_of_list_of_color_blocks:
+				FL += item[1]
+			return FL
+
+		def source_of_variant(varstaff_n, variant_list):
+			for v in variant_list:
+				if varstaff_n == v[0]:
+					return v[3]
+
+		try:
+			name = 'Trace Segfault'
+			mei_file = 'dat/DC1204E-B.SEGFAULT.mei'
+			transform_data = TransformData()
+			transform_data.arranger_to_editor = True
+			transform_data.replace_longa = False
+			transform_data.obliterate_incipit = False
+			transform_data.editorial_resp = 'TESTCASE'
+			transform_data.alternates_list = [
+					('1', VARIANT, '1', ''),
+					('2', VARIANT, '1', 'RISM1570-6'),
+					('3', VARIANT, '1', 'RISM1557-15'),
+					('4', VARIANT, '4', ''),
+					('5', VARIANT, '4', 'RISM1570-6'),
+					('6', VARIANT, '6', ''), 
+					('7', VARIANT, '6', 'RISM1570-6'),
+					('8', VARIANT, '8', ''), 
+					('9', VARIANT, '8', 'RISM1570-6'),
+					('10', VARIANT, '8', 'RISM1557-15'),
+					]
+
+			old_filename = mei_file
+			print('{a}')
+			old_MEI_doc = XmlImport.documentFromFile(old_filename)
+			print('{b} running test case ' + name + ' Input: ' + old_filename)
+			MEI_tree = old_MEI_doc.getRootElement()
+			ALT_TYPE = VARIANT
+			# filtered_alternates_list = [i for i in transform_data.alternates_list
+			# 		if i[1] == VARIANT and i[0] != i[2]]
+			# for measure in MEI_tree.getDescendantsByName('measure'):
+			# 	logging.debug('measure: ' + measure.getAttribute('n').getValue())
+			# 	lemmas = []
+			# 	for v in transform_data.alternates_list:
+			# 		if v[2] not in lemmas:
+			# 			lemmas.append(v[2])
+			# 	for L in lemmas:
+			# 		colored_blocks = transform.alt.get_colored_blocks(measure, L, transform_data.alternates_list, transform_data.color_for_variants)
+			# 		staff = transform.alt.get_staff(measure, L)
+			# 		logging.debug('Lemma no. ' + L)
+			# 		logging.debug('All colored blocks for Lemma ' + str(L) + ': ' + str(colored_blocks))
+			# 		logging.debug("add_rich_elems {a}")
+			# 		flat_list_of_colored_blocks = flatten_all_colored_blocks(colored_blocks)
+			# 		logging.debug("add_rich_elems {b}")
+			# 		if transform.alt.legal_overlapping(staff, flat_list_of_colored_blocks):
+			# 			logging.debug("add_rich_elems {c.1}")
+			# 			wrapperlist = dict()
+			# 			RDGs_to_fill = []
+			# 			for cbs in colored_blocks:
+			# 				varstaff_n = cbs[0].getAttribute('n').getValue()
+			# 				sourceID = '#' + source_of_variant(varstaff_n, transform_data.alternates_list)
+			# 				for cb in cbs[1]:
+			# 					logging.debug("add_rich_elems() {A}: cb=" + str(cb))
+			# 					skip=cb[1]
+			# 					dur=cb[2]
+			# 					notelist=cb[3]
+			# 					transform.alt.add_wrapper_to_staff(staff, skip, dur, wrapperlist, ALT_TYPE)
+			# 					logging.debug("add_rich_elems() {B}: wrapperlist=" + str(wrapperlist))
+			# 					rich_wrapper = wrapperlist[skip]
+			# 					logging.debug("add_rich_elems() {C}")
+			# 					# add rdg elements with reference to notelist, but do not insert notelist yet.
+			# 					rdg = MeiElement(rich_item_name)
+			# 					rdg.addAttribute(rich_item_attr_name, sourceID)
+			# 					rich_wrapper.addChild(rdg)
+			# 					RDGs_to_fill.append((rdg, notelist))
+			# 			# fill in rdg elements 
+			# 			for rdgf in RDGs_to_fill:
+			# 				for note in rdgf[1]:
+			# 					logging.debug('adding child to rdg:')
+			# 					logging.debug(rdgf[0])
+			# 					rdgf[0].addChild(note)
+			transform.alt.local_alternatives(MEI_tree, transform_data.alternates_list, transform_data.color_for_variants, VARIANT)
+			# variants(MEI_tree, transform_data.alternates_list, transform_data.color_for_variants)
+			# new_MEI_doc = transform(old_MEI_doc, transform_data)
+			print('{c}')
+
+		except Exception as ex:
+			print ex
+			print "Unexpected error"
+			pass
+		print "AFTER TRY"
+		# TODO: do some asserts	on transformed_mei
 
 def suite():
 	test_suite = unittest.TestSuite()
+	test_suite.addTest(unittest.TestLoader().loadTestsFromName('transform_test.TransformTest.test_destructors'))
 	test_suite.addTest(unittest.TestLoader().loadTestsFromName('transform_test.TransformTest.test_incipit_noincipit'))
 	test_suite.addTest(unittest.TestLoader().loadTestsFromName('transform_test.TransformTest.test_incipit_simple'))
 	test_suite.addTest(unittest.TestLoader().loadTestsFromName('transform_test.TransformTest.test_incipit_extrastavesandincipit'))

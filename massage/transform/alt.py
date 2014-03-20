@@ -188,6 +188,7 @@ def add_wrapper_to_staff(staff, skip, duration, wrapperlist, ALT_TYPE):
 				note.getParent().removeChild(note)
 				rich_default_elem.addChild(note)
 				duration -= dur_of_next_note	
+	logging.debug('add_wrapper_to_staff(): END')
 
 def wrap_whole_measure(staff, ALT_TYPE):
 	"""Enclose the entire contents of a staff in a measure
@@ -371,7 +372,9 @@ def add_rich_elems(measure, alternates_list, color_we_want, ALT_TYPE):
 					dur=cb[2]
 					notelist=cb[3]
 					add_wrapper_to_staff(staff, skip, dur, wrapperlist, ALT_TYPE)
+					logging.debug("add_rich_elems() {B}: wrapperlist=" + str(wrapperlist))
 					rich_wrapper = wrapperlist[skip]
+					logging.debug("add_rich_elems() {C}")
 					# add rdg elements with reference to notelist, but do not insert notelist yet.
 					rdg = MeiElement(rich_item_name)
 					rdg.addAttribute(rich_item_attr_name, sourceID)
