@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mei meiversion="2013" xmlns="http://www.music-encoding.org/ns/mei" xmlns:xlink="http://www.w3.org/1999/xlink">
+<meiHead>
+	<fileDesc>
+		<titleStmt>
+			<title>Tout ce qu'on peut en elle voir</title>
+			<composer>Cyprian</composer>
+			<respStmt>
+				<persName/>
+			</respStmt>
+		</titleStmt>
+		<pubStmt>
+			<availability>
+				<useRestrict/>
+			</availability>
+		</pubStmt>
+	</fileDesc>
+	<encodingDesc>
+		<appInfo>
+			<application version="7" xml:id="sibelius7">
+				<name>Sibelius</name>
+			</application>
+		</appInfo>
+	</encodingDesc>
+	<workDesc>
+		<work>
+			<titleStmt>
+				<title>Tout ce qu'on peut en elle voir</title>
+				<respStmt>
+					<persName role="composer">Cyprian</persName>
+				</respStmt>
+			</titleStmt>
+		</work>
+	</workDesc>
+</meiHead>
+<music>
+	<body>
+		<mdiv>
+			<score>
+				<scoreDef meter.count="4" meter.unit="4" page.botmar="21mm" page.height="431.8mm" page.leftmar="21mm" page.rightmar="21mm" page.topmar="21mm" page.width="279.4mm" ppq="256">
+					<staffGrp>
+						<staffGrp n="1" symbol="bracket">
+							<staffDef clef.line="2" clef.shape="G" key.mode="major" key.sig="1f" label="Superius" lines="5" n="1" xml:id="sd1"/>
+							<staffDef clef.line="2" clef.shape="G" key.mode="major" key.sig="1f" label="Superius_Variant_1570/6" lines="5" n="2" xml:id="sd2"/>
+							<staffDef clef.line="2" clef.shape="G" key.mode="major" key.sig="1f" label="Superius_Variant_1557/15" lines="5" n="3" xml:id="sd3"/>
+							<staffDef clef.line="2" clef.shape="G" key.mode="major" key.sig="1f" label="Contratenor" lines="5" n="4" xml:id="sd4"/>
+							<staffDef clef.line="2" clef.shape="C" key.mode="major" key.sig="1f" label="Contratenor_Variant_1570/6" lines="5" n="5" xml:id="sd5"/>
+							<staffDef clef.line="3" clef.shape="C" key.mode="major" key.sig="1f" label="Tenor" lines="5" n="6" xml:id="sd6"/>
+							<staffDef clef.line="3" clef.shape="C" key.mode="major" key.sig="1f" label="Tenor_Variant_1570/6" lines="5" n="7" xml:id="sd7"/>
+							<staffDef clef.line="4" clef.shape="F" key.mode="major" key.sig="1f" label="Bassus" lines="5" n="8" xml:id="sd8"/>
+							<staffDef clef.line="4" clef.shape="F" key.mode="major" key.sig="1f" label="Bassus_Variant_1570/6 " lines="5" n="9" xml:id="sd9"/>
+							<staffDef clef.line="4" clef.shape="F" key.mode="major" key.sig="1f" label="Bassus_Variant_1557/15" lines="5" n="10" xml:id="sd10"/>
+						</staffGrp>
+					</staffGrp>
+				</scoreDef>
+				<section>
+					<pb n="3"/>
+					<measure n="35" right="end">
+						<staff n="1">
+							<layer n="1">
+								<note dur="4" dur.ges="256p" oct="4" pname="g" tie="t" xml:id="p1cgd4n0v1b35s1"/>
+								<beam>
+									<note dur="8" dur.ges="128p" oct="4" pname="f" xml:id="p1cfd4n256v1b35s1">
+										<supplied>
+											<accid accid="s" func="edit" place="above"/>
+										</supplied>
+									</note>
+									<note dur="8" dur.ges="128p" oct="4" pname="e" xml:id="p1ced4n384v1b35s1"/>
+								</beam>
+								<note dur="2" dur.ges="512p" oct="4" pname="f" xml:id="p1cfd4n512v1b35s1">
+									<supplied>
+										<accid accid="s" func="edit" place="above"/>
+									</supplied>
+								</note>
+								<note dur="2" dur.ges="512p" oct="4" pname="g" xml:id="p1cgd4n1024v1b35s1">
+									<verse n="1">
+										<syl wordpos="t">mer.</syl>
+									</verse>
+								</note>
+							</layer>
+						</staff>
+						<staff n="2">
+							<layer n="1">
+								<note dur="4" dur.ges="256p" oct="4" pname="g" xml:id="p1cgd4n0v1b35s2"/>
+								<beam>
+									<note color="rgba(255,0,0,1)" dur="8" dur.ges="128p" oct="4" pname="f" xml:id="p1cfd4n256v1b35s2">
+										<accid accid="s" func="caution"/>
+									</note>
+									<note dur="8" dur.ges="128p" oct="4" pname="e" xml:id="p1ced4n384v1b35s2"/>
+								</beam>
+								<note color="rgba(255,0,0,1)" dur="2" dur.ges="512p" oct="4" pname="f" xml:id="p1cfd4n512v1b35s2">
+									<accid accid="s" func="caution"/>
+								</note>
+								<note dur="2" dur.ges="512p" oct="4" pname="g" xml:id="p1cgd4n1024v1b35s2">
+									<verse n="1">
+										<syl wordpos="t">mer.</syl>
+									</verse>
+								</note>
+							</layer>
+						</staff>
+						<staff n="3">
+							<layer n="1">
+								<mRest/>
+							</layer>
+						</staff>
+						<staff n="4">
+							<layer n="1">
+								<mRest/>
+							</layer>
+						</staff>
+						<staff n="5">
+							<layer n="1">
+								<note dur="1" dur.ges="1024p" oct="4" pname="d" xml:id="p1cdd4n0v1b35s5">
+									<verse n="1">
+										<syl con="d" wordpos="i">ay</syl>
+									</verse>
+								</note>
+								<note dur="2" dur.ges="512p" oct="4" pname="d" xml:id="p1cdd4n1024v1b35s5">
+									<verse n="1">
+										<syl wordpos="t">mer</syl>
+									</verse>
+								</note>
+								<space dur="2" dur.ges="512p" xml:id="p1r1536v1b35s5"/>
+							</layer>
+						</staff>
+						<staff n="6">
+							<layer n="1">
+								<note dur="2" dur.ges="512p" oct="3" pname="a" xml:id="p1cad3n0v1b35s6"/>
+								<note dur="2" dur.ges="512p" oct="3" pname="a" xml:id="p1cad3n512v1b35s6">
+									<verse n="1">
+										<syl con="d" wordpos="i">ay</syl>
+									</verse>
+								</note>
+								<note dur="2" dur.ges="512p" oct="3" pname="g" xml:id="p1cgd3n1024v1b35s6">
+									<verse n="1">
+										<syl wordpos="t">mer.</syl>
+									</verse>
+								</note>
+							</layer>
+						</staff>
+						<staff n="7">
+							<layer n="1">
+								<mRest/>
+							</layer>
+						</staff>
+						<staff n="8">
+							<layer n="1">
+								<mRest/>
+							</layer>
+						</staff>
+						<staff n="9">
+							<layer n="1">
+								<note dur="1" dur.ges="1024p" oct="3" pname="d" xml:id="p1cdd3n0v1b35s9">
+									<verse n="1">
+										<syl con="d" wordpos="i">ay</syl>
+									</verse>
+								</note>
+								<note dur="2" dur.ges="512p" oct="2" pname="g" xml:id="p1cgd2n1024v1b35s9">
+									<verse n="1">
+										<syl wordpos="t">mer.</syl>
+									</verse>
+								</note>
+								<space dur="2" dur.ges="512p" xml:id="p1r1536v1b35s9"/>
+							</layer>
+						</staff>
+						<staff n="10">
+							<layer n="1">
+								<note dur="1" dur.ges="1024p" oct="3" pname="d" xml:id="p1cdd3n0v1b35s10">
+									<verse n="1">
+										<syl con="d" wordpos="i">ay</syl>
+									</verse>
+								</note>
+								<note dur="2" dur.ges="512p" oct="3" pname="g" xml:id="p1cgd3n1024v1b35s10">
+									<verse n="1">
+										<syl wordpos="t">mer.</syl>
+									</verse>
+								</note>
+								<rest dur="2" dur.ges="512p" xml:id="p1r1536v1b35s10"/>
+							</layer>
+						</staff>
+					</measure>
+				</section>
+			</score>
+		</mdiv>
+	</body>
+</music>
+</mei>
