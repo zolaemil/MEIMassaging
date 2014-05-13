@@ -120,7 +120,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'menus',
+    # 'menus',
     'south',
     'django.contrib.auth',
     'django.contrib.contenttypes',
